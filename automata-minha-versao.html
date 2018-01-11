@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Automata</title>
+	<style type="text/css">
+		.row div {
+			width: 8px;
+			height: 8px;
+			display: inline-block;
+			margin: 1px;
+		}
+
+		.row div.active {
+			background-color: blue;
+		}
+
+		.row div.inactive {
+			background-color: red;
+		}
+
+	</style>
+</head>
+<body>
+	<div>
+		<div class="row"></div>
+	</div>
+	<script type="text/javascript">
+		function criaLinha() {
+			for (let i = 0; i < 101; i++) {
+				let div = document.createElement('div')
+				document.querySelector('.row').appendChild(div)	
+			}
+		}		
+
+		function randomBinary() {
+			let max = 1
+			let min = 0
+			return Math.floor(Math.random() * (max - min + 1))
+		} 
+
+		function randomizeRow(rowDiv) {
+			for (var i = 0; i < rowDiv.childNodes.length; i++) {
+				let div = rowDiv.childNodes[i]
+				div.classList.add(randomBinary() ? 'active' : 'inactive') 
+			}
+		}
+
+		
+			randomizeRow(document.querySelector('.row'))
+
+		for (let i = 0; i < 5; i++) {
+			criaLinha()			
+		}
+
+	</script>
+</body>
+</html>
